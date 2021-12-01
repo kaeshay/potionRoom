@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Potion Room</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="styles/main.css">
+	<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
+</head>
+<body>
+<div id="container"></div>
+<img id="bottle" src="assets/bottle.png">
+<img id="leggy" class="draggable avatar" src="assets/leggy.png">
+<img id="skeleton" class="draggable avatar" src="assets/skeleton.png">
+</body>
+<script>
+	for (var i=0;i<=27;i++){
+	document.getElementById('container').innerHTML+=
+	'<img class="draggable place" src="assets/places/'+i+'.png">'
+	}
+	for (var i=0;i<=51;i++){
+	document.getElementById('container').innerHTML+=
+	'<img class="draggable people" src="assets/people/'+i+'.png">'
+	}
+	for (var i=0;i<=46;i++){
+	document.getElementById('container').innerHTML+=
+	'<img class="draggable thing" src="assets/things/'+i+'.png">'
+	}
+
+
+	var container = document.getElementById('container');
+	var places=container.querySelectorAll(".place");
+	for (let i=0;i<places.length;i++){
+		places[i].addEventListener('dblclick', function(){
+			places[i].style.width='500px';
+			places[i].style.position='fixed';
+			places[i].style.left='100px';
+			places[i].style.top='370px';
+			places[i].style.height='auto';
+		});
+	}
+	var people=container.querySelectorAll(".people");
+	for (let i=0;i<people.length;i++){
+		people[i].addEventListener('dblclick', function(){
+			people[i].style.height='200px';
+			people[i].style.position='fixed';
+			people[i].style.left='400px';
+			people[i].style.top='500px';
+			people[i].style.width='auto';
+		});
+	}
+	var things=container.querySelectorAll(".thing");
+	for (let i=0;i<things.length;i++){
+		things[i].addEventListener('dblclick', function(){
+			things[i].style.position='fixed';
+			things[i].style.left='400px';
+			things[i].style.top='500px';
+			things[i].style.width='auto';
+		});
+	}
+</script>
+<script type="text/javascript" src="scripts/draggable.js"></script>
+</html>
